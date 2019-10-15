@@ -57,16 +57,19 @@ class Game
     end
   end
 
-  def menu_choice (str)
+  def menu_choice
+    str = gets.chomp
+    puts "\n"
     if str == "a"
       @human_player.search_weapon
     elsif str == "s"
       @human_player.search_health_pack
-    elsif str.to_i <= @enemies_in_sight.length
+    elsif str.to_i == (0..@enemies_in_sight.length)
       @human_player.attacks(@enemies_in_sight[str.to_i])
       @enemies_in_sight[str.to_i].life_points <= 0 ? kill_player(@enemies_in_sight[str.to_i]) : 0
     else
-      return false
+      puts "Nop, pas possible, recommence"
+      menu_choice
     end
   end
 

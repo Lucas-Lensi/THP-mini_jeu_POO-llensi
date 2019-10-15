@@ -21,10 +21,7 @@ while my_game.is_still_ongoing?
   my_game.new_players_in_sight
   my_game.menu
   print "\n Votre choix : "
-  choice = gets.chomp
-  puts "\n"
-    puts "\n\nnop, mauvaise entrée\n\n"
-  my_game.menu_choice(choice)
+  my_game.menu_choice
   puts "\n"
   my_game.enemies_attack
 end
